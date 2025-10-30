@@ -15,6 +15,10 @@ export const metadata: Metadata = {
   description:
     "Fullstack Developer & CS Undergrad (UniMoRe). Building AI platforms, Electron desktop apps, and modern web experiences.",
   alternates: { canonical: "/" },
+  icons: {
+    icon: "/aristar-logo.ico",
+    shortcut: "/aristar-logo.ico",
+  },
   openGraph: {
     title: "Michael Aristarco — Fullstack Developer",
     description:
