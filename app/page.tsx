@@ -40,7 +40,7 @@ export default function Home() {
     <div className="min-h-screen bg-background text-foreground relative">
       <nav className="fixed left-8 top-1/2 -translate-y-1/2 z-10 hidden lg:block">
         <div className="flex flex-col gap-4">
-          {["intro", "work", "thoughts", "connect"].map((section) => (
+          {["intro", "work", "connect"].map((section) => (
             <button
               key={section}
               onClick={() =>
@@ -89,9 +89,8 @@ export default function Home() {
                 <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4 text-sm text-muted-foreground">
                   <div className="flex items-center gap-2">
                     <div className="w-2 h-2 bg-red-500 rounded-full animate-pulse"></div>
-                    Not avaiable for work
+                    Not available for work
                   </div>
-                  <div>Italy</div>
                 </div>
               </div>
             </div>
@@ -103,12 +102,10 @@ export default function Home() {
                 </div>
                 <div className="space-y-2">
                   <div className="text-foreground">
-                    Fullstack Developer & Undergrad
+                    Fullstack Developer & CS Undergrad
                   </div>
-                  <div className="text-muted-foreground">@ Bonobo AI</div>
-                  <div className="text-xs text-muted-foreground">
-                    2024 — Present
-                  </div>
+                  <div className="text-muted-foreground">@ Bonobo AI • UniMoRe</div>
+                  <div className="text-xs text-muted-foreground">2024 — Present</div>
                 </div>
               </div>
 
@@ -139,167 +136,164 @@ export default function Home() {
           <div className="space-y-12 sm:space-y-16">
             <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
               <h2 className="text-3xl sm:text-4xl font-light">Selected Work</h2>
-              <div className="text-sm text-muted-foreground font-mono">
-                2019 — 2025
+              <div className="text-sm text-muted-foreground">
+                Discover recent projects across AI, desktop, and web.
               </div>
             </div>
 
-            <div className="space-y-8 sm:space-y-12">
-              {[
-                {
-                  year: "2023",
-                  role: "Senior Frontend Engineer",
-                  company: "Vercel",
-                  description:
-                    "Leading frontend architecture for developer tools and AI-powered features.",
-                  tech: ["React", "TypeScript", "Next.js"],
-                },
-                {
-                  year: "2022",
-                  role: "Frontend Engineer",
-                  company: "Linear",
-                  description:
-                    "Built performant interfaces for project management and team collaboration.",
-                  tech: ["React", "GraphQL", "Framer Motion"],
-                },
-                {
-                  year: "2021",
-                  role: "Full Stack Developer",
-                  company: "Stripe",
-                  description:
-                    "Developed payment infrastructure and merchant-facing dashboard features.",
-                  tech: ["Ruby", "React", "PostgreSQL"],
-                },
-                {
-                  year: "2019",
-                  role: "Software Engineer",
-                  company: "Airbnb",
-                  description:
-                    "Created booking flow optimizations and host management tools.",
-                  tech: ["React", "Node.js", "MySQL"],
-                },
-              ].map((job, index) => (
+            {/* Projects Grid */}
+            <div className="grid gap-6 sm:gap-8 md:grid-cols-2">
+              {(
+                [
+                  {
+                    title: "Aristar Management",
+                    type: "Desktop Application",
+                    status: "WIP",
+                    tagline:
+                      "End-to-end bakery management with AI-assisted ordering.",
+                    summary:
+                      "Manage clients, products, and orders with weekly/daily flows and exports.",
+                    tech: ["Electron", "LangChain"],
+                  },
+                  {
+                    title: "Aristar Survivor",
+                    type: "Web Game",
+                    status: "Live",
+                    tagline:
+                      "Multiplayer turn-based survival on a procedural island.",
+                    summary:
+                      "Explore, gather resources, collaborate or battle; survive by escape or elimination.",
+                    tech: ["React", "Next.js", "Colyseus", "Convex", "WebGL"],
+                    link: "https://aristar-survivor.vercel.app/",
+                  },
+                  {
+                    title: "Bonobo AI",
+                    type: "AI Platform",
+                    status: "Live",
+                    tagline:
+                      "Automatically compiles briefs and generates instant project quotes.",
+                    summary:
+                      "AI brief parsing with personalized quotes and CRM integration.",
+                    tech: ["Next.js", "LangChain", "Qdrant"],
+                    link: "https://app.bonoboai.it/",
+                  },
+                ] as const
+              ).map((proj) => (
                 <div
-                  key={index}
-                  className="group grid lg:grid-cols-12 gap-4 sm:gap-8 py-6 sm:py-8 border-b border-border/50 hover:border-border transition-colors duration-500"
+                  key={proj.title}
+                  className="p-6 sm:p-8 border border-border rounded-lg"
                 >
-                  <div className="lg:col-span-2">
-                    <div className="text-xl sm:text-2xl font-light text-muted-foreground group-hover:text-foreground transition-colors duration-500">
-                      {job.year}
-                    </div>
-                  </div>
-
-                  <div className="lg:col-span-6 space-y-3">
+                  <div className="flex items-start justify-between gap-4">
                     <div>
+                      <div className="text-xs font-mono text-muted-foreground mb-2">
+                        {proj.type}
+                      </div>
                       <h3 className="text-lg sm:text-xl font-medium">
-                        {job.role}
+                        {proj.title}
                       </h3>
-                      <div className="text-muted-foreground">{job.company}</div>
                     </div>
-                    <p className="text-muted-foreground leading-relaxed max-w-lg">
-                      {job.description}
-                    </p>
+                    <span
+                      className={`shrink-0 px-2 py-0.5 text-[11px] rounded-full border ${
+                        proj.status === "Live"
+                          ? "text-emerald-500 border-emerald-500/40"
+                          : "text-amber-500 border-amber-500/40"
+                      }`}
+                    >
+                      {proj.status}
+                    </span>
                   </div>
 
-                  <div className="lg:col-span-4 flex flex-wrap gap-2 lg:justify-end mt-2 lg:mt-0">
-                    {job.tech.map((tech) => (
+                  <p className="mt-3 text-muted-foreground leading-relaxed">
+                    {proj.tagline}
+                  </p>
+                  <p className="mt-2 text-sm text-muted-foreground">
+                    {proj.summary}
+                  </p>
+
+                  <div className="mt-4 flex flex-wrap gap-2">
+                    {proj.tech.map((t) => (
                       <span
-                        key={tech}
-                        className="px-2 py-1 text-xs text-muted-foreground rounded group-hover:border-muted-foreground/50 transition-colors duration-500"
+                        key={t}
+                        className="px-2 py-1 text-xs text-muted-foreground border border-border rounded"
                       >
-                        {tech}
+                        {t}
                       </span>
                     ))}
                   </div>
+
+                  {"link" in proj && proj.link ? (
+                    <div className="mt-6">
+                      <Link
+                        href={proj.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="group inline-flex items-center gap-2 text-sm text-foreground hover:text-muted-foreground transition-colors duration-300"
+                        aria-label={`View ${proj.title}`}
+                      >
+                        <span>View Project</span>
+                        <svg
+                          className="w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-300"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M17 8l4 4m0 0l-4 4m4-4H3"
+                          />
+                        </svg>
+                      </Link>
+                    </div>
+                  ) : null}
                 </div>
               ))}
             </div>
-          </div>
-        </section>
 
-        <section
-          id="thoughts"
-          ref={(el) => (sectionsRef.current[2] = el)}
-          className="min-h-screen py-20 sm:py-32 opacity-0"
-        >
-          <div className="space-y-12 sm:space-y-16">
-            <h2 className="text-3xl sm:text-4xl font-light">Recent Thoughts</h2>
-
-            <div className="grid gap-6 sm:gap-8 lg:grid-cols-2">
-              {[
-                {
-                  title: "The Future of Web Development",
-                  excerpt:
-                    "Exploring how AI and automation are reshaping the way we build for the web.",
-                  date: "Dec 2024",
-                  readTime: "5 min",
-                },
-                {
-                  title: "Design Systems at Scale",
-                  excerpt:
-                    "Lessons learned from building and maintaining design systems across multiple products.",
-                  date: "Nov 2024",
-                  readTime: "8 min",
-                },
-                {
-                  title: "Performance-First Development",
-                  excerpt:
-                    "Why performance should be a first-class citizen in your development workflow.",
-                  date: "Oct 2024",
-                  readTime: "6 min",
-                },
-                {
-                  title: "The Art of Code Review",
-                  excerpt:
-                    "Building better software through thoughtful and constructive code reviews.",
-                  date: "Sep 2024",
-                  readTime: "4 min",
-                },
-              ].map((post, index) => (
-                <article
-                  key={index}
-                  className="group p-6 sm:p-8 border border-border rounded-lg hover:border-muted-foreground/50 transition-all duration-500 hover:shadow-lg cursor-pointer"
-                >
-                  <div className="space-y-4">
-                    <div className="flex items-center justify-between text-xs text-muted-foreground font-mono">
-                      <span>{post.date}</span>
-                      <span>{post.readTime}</span>
+            {/* More Projects */}
+            <div className="pt-4 sm:pt-8">
+              <div className="text-sm text-muted-foreground font-mono mb-4">
+                More Projects
+              </div>
+              <div className="grid gap-4 sm:gap-6 md:grid-cols-3">
+                {[
+                  {
+                    title: "World Nations",
+                    summary:
+                      "Discord bot strategy game where players build empires, manage resources, and engage in warfare.",
+                  },
+                  {
+                    title: "Football Manager Database",
+                    summary:
+                      "Management system for purchases and team management using algorithmic data.",
+                  },
+                  {
+                    title: "SpotiStats",
+                    summary:
+                      "Visualize and analyze your personal Spotify statistics.",
+                  },
+                ].map((p) => (
+                  <div
+                    key={p.title}
+                    className="p-4 sm:p-5 border border-border rounded-lg"
+                  >
+                    <div className="text-sm font-medium text-foreground">
+                      {p.title}
                     </div>
-
-                    <h3 className="text-lg sm:text-xl font-medium group-hover:text-muted-foreground transition-colors duration-300">
-                      {post.title}
-                    </h3>
-
-                    <p className="text-muted-foreground leading-relaxed">
-                      {post.excerpt}
+                    <p className="mt-2 text-sm text-muted-foreground">
+                      {p.summary}
                     </p>
-
-                    <div className="flex items-center gap-2 text-sm text-muted-foreground group-hover:text-foreground transition-colors duration-300">
-                      <span>Read more</span>
-                      <svg
-                        className="w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-300"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M17 8l4 4m0 0l-4 4m4-4H3"
-                        />
-                      </svg>
-                    </div>
                   </div>
-                </article>
-              ))}
+                ))}
+              </div>
             </div>
           </div>
         </section>
 
         <section
           id="connect"
-          ref={(el) => (sectionsRef.current[3] = el)}
+          ref={(el) => (sectionsRef.current[2] = el)}
           className="py-20 sm:py-32 opacity-0"
         >
           <div className="grid lg:grid-cols-2 gap-12 sm:gap-16">
@@ -308,17 +302,16 @@ export default function Home() {
 
               <div className="space-y-6">
                 <p className="text-lg sm:text-xl text-muted-foreground leading-relaxed">
-                  Always interested in new opportunities, collaborations, and
-                  conversations about technology and design.
+                  Always interested in new opportunities and collaborations.
                 </p>
 
                 <div className="space-y-4">
                   <Link
-                    href="mailto:test@example.com"
+                    href="mailto:aristarcomichael@aristar.it"
                     className="group flex items-center gap-3 text-foreground hover:text-muted-foreground transition-colors duration-300"
                   >
                     <span className="text-base sm:text-lg">
-                      test@example.com
+                      aristarcomichael@aristar.it
                     </span>
                     <svg
                       className="w-5 h-5 transform group-hover:translate-x-1 transition-transform duration-300"
@@ -345,14 +338,21 @@ export default function Home() {
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {[
-                  { name: "GitHub", handle: "@felixmacaspac", url: "#" },
-                  { name: "v0.dev", handle: "@felixmacaspac", url: "#" },
                   {
-                    name: "HubSpot Community",
-                    handle: "@felixmacaspac",
-                    url: "#",
+                    name: "GitHub",
+                    handle: "@mickyyy68",
+                    url: "https://github.com/mickyyy68",
                   },
-                  { name: "LinkedIn", handle: "felixmacaspac", url: "#" },
+                  {
+                    name: "Instagram",
+                    handle: "@mike.aristarco",
+                    url: "https://instagram.com/mike.aristarco",
+                  },
+                  {
+                    name: "LinkedIn",
+                    handle: "michael-aristarco",
+                    url: "https://www.linkedin.com/in/michael-aristarco-8a76382b2/",
+                  },
                 ].map((social) => (
                   <Link
                     key={social.name}
@@ -378,10 +378,7 @@ export default function Home() {
           <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-6 sm:gap-8">
             <div className="space-y-2">
               <div className="text-sm text-muted-foreground">
-                © 2025 Felix Macaspac. All rights reserved.
-              </div>
-              <div className="text-xs text-muted-foreground">
-                Built with v0.dev by Felix Macaspac
+                © 2025 Michael Aristarco. All rights reserved.
               </div>
             </div>
 
@@ -412,22 +409,6 @@ export default function Home() {
                     <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
                   </svg>
                 )}
-              </button>
-
-              <button className="group p-3 rounded-lg border border-border hover:border-muted-foreground/50 transition-all duration-300">
-                <svg
-                  className="w-4 h-4 text-muted-foreground group-hover:text-foreground transition-colors duration-300"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"
-                  />
-                </svg>
               </button>
             </div>
           </div>

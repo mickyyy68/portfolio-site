@@ -1,34 +1,38 @@
-# Minimalist Portfolio Website
+# Michael Aristarco — Portfolio
 
-A clean, modern portfolio website built with Next.js and Tailwind CSS, featuring smooth animations and dark/light theme support.
+A clean, modern portfolio built with Next.js and Tailwind CSS. Showcases selected work across AI platforms, desktop apps (Electron), and web experiences, with a simple responsive grid and dark/light theme support.
 
 ## ✨ Features
 
-- **Minimalist Design** - Clean typography with Geist font and strategic use of whitespace
-- **Responsive Layout** - Mobile-first design that works on all devices
+- **Selected Work Grid** - Three featured projects with status badges and tech chips
+- **More Projects Row** - Compact cards for additional projects
+- **Responsive Layout** - Mobile-first, 1→2 column grid
 - **Theme Toggle** - Seamless dark/light mode switching
-- **Smooth Animations** - Subtle scroll-triggered animations and hover effects
-- **Modern Stack** - Built with Next.js 15, TypeScript, and Tailwind CSS
+- **Subtle Animations** - Intersection-based fade/slide
+- **Modern Stack** - Next.js 15, TypeScript, Tailwind CSS
 
 ## 🚀 Built With
 
 - [Next.js](https://nextjs.org/) - React framework
 - [TypeScript](https://www.typescriptlang.org/) - Type safety
 - [Tailwind CSS](https://tailwindcss.com/) - Styling
-- [v0.dev](https://v0.dev/) - AI-powered development
+  
 
 ## 📦 Getting Started
 
-\`\`\`bash
-# Clone the repository
-git clone https://github.com/felixmacaspac/v0-minimalist-portfolio.git
-
+```bash
 # Install dependencies
-npm install
+pnpm install
 
 # Run development server
-npm run dev
-\`\`\`
+pnpm dev
+
+# Build for production
+pnpm build
+
+# Start production server
+pnpm start
+```
 
 Open [http://localhost:3000](http://localhost:3000) to view the portfolio.
 
@@ -37,7 +41,8 @@ Open [http://localhost:3000](http://localhost:3000) to view the portfolio.
 The portfolio is designed to be easily customizable:
 
 - Update personal information in `app/page.tsx`
-- Modify colors and styling in `app/globals.css`
+- Update metadata (title/description) in `app/layout.tsx`
+- Modify colors and styling in `styles` and `app/globals.css`
 - Add or remove sections as needed
 
 ## 📄 License
@@ -46,4 +51,4 @@ Open source and available under the [MIT License](LICENSE).
 
 ---
 
-**Built with ❤️ using [v0.dev](https://v0.dev) by Felix Macaspac**
+© 2025 Michael Aristarco
