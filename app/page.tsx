@@ -114,7 +114,7 @@ export default function Home() {
                   FOCUS
                 </div>
                 <div className="flex flex-wrap gap-2">
-                  {["Next.js", "AI Agents", "Electron"].map((skill) => (
+                  {["Bun", "Vite", "React", "AI Agents"].map((skill) => (
                     <span
                       key={skill}
                       className="px-3 py-1 text-xs border border-border rounded-full hover:border-muted-foreground/50 transition-colors duration-300"
@@ -145,6 +145,17 @@ export default function Home() {
             <div className="grid gap-6 sm:gap-8 md:grid-cols-2">
               {(
                 [
+                  {
+                    title: "Aristar Notes",
+                    type: "Web Application",
+                    status: "Live",
+                    tagline:
+                      "AI-powered note-taking with document analysis.",
+                    summary:
+                      "PDF/document upload, AI chat/completion, document organization, and usage-based quotas.",
+                    tech: ["Bun", "Elysia", "Vite", "React", "PocketBase"],
+                    link: "https://notes.aristar.it/",
+                  },
                   {
                     title: "Aristar Management",
                     type: "Desktop Application",
