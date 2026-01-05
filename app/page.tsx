@@ -146,6 +146,17 @@ export default function Home() {
               {(
                 [
                   {
+                    title: "Aristar Worktrees",
+                    type: "Desktop Application",
+                    status: "Live",
+                    tagline:
+                      "Beautiful Tauri app for managing Git worktrees with AI agent orchestration.",
+                    summary:
+                      "Multiple repo support, worktree creation/management, startup scripts, themes, and AI agent orchestration.",
+                    tech: ["React", "TypeScript", "Tauri", "Rust", "Bun"],
+                    link: "https://github.com/mickyyy68/aristar-worktrees",
+                  },
+                  {
                     title: "Aristar Notes",
                     type: "Web Application",
                     status: "Live",
