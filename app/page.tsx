@@ -2,6 +2,12 @@
 
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
+import { HugeiconsIcon } from "@hugeicons/react";
+import {
+  GithubIcon,
+  InstagramIcon,
+  Linkedin01Icon,
+} from "@hugeicons/core-free-icons";
 
 export default function Home() {
   const [isDark, setIsDark] = useState(true);
@@ -159,18 +165,17 @@ export default function Home() {
                   {
                     title: "Aristar Notes",
                     type: "Web Application",
-                    status: "Live",
+                    status: "Retired",
                     tagline:
                       "AI-powered note-taking with document analysis.",
                     summary:
                       "PDF/document upload, AI chat/completion, document organization, and usage-based quotas.",
                     tech: ["Bun", "Elysia", "Vite", "React", "PocketBase"],
-                    link: "https://notes.aristar.it/",
                   },
                   {
                     title: "Aristar Management",
                     type: "Desktop Application",
-                    status: "WIP",
+                    status: "Live",
                     tagline:
                       "End-to-end bakery management with AI-assisted ordering.",
                     summary:
@@ -218,6 +223,8 @@ export default function Home() {
                       className={`shrink-0 px-2 py-0.5 text-[11px] rounded-full border ${
                         proj.status === "Live"
                           ? "text-emerald-500 border-emerald-500/40"
+                          : proj.status === "Retired"
+                            ? "text-muted-foreground border-border"
                           : "text-amber-500 border-amber-500/40"
                       }`}
                     >
@@ -364,16 +371,19 @@ export default function Home() {
                     name: "GitHub",
                     handle: "@mickyyy68",
                     url: "https://github.com/mickyyy68",
+                    icon: GithubIcon,
                   },
                   {
                     name: "Instagram",
                     handle: "@mike.aristarco",
                     url: "https://instagram.com/mike.aristarco",
+                    icon: InstagramIcon,
                   },
                   {
                     name: "LinkedIn",
                     handle: "michael-aristarco",
                     url: "https://www.linkedin.com/in/michael-aristarco-8a76382b2/",
+                    icon: Linkedin01Icon,
                   },
                 ].map((social) => (
                   <Link
@@ -381,12 +391,21 @@ export default function Home() {
                     href={social.url}
                     className="group p-4 border border-border rounded-lg hover:border-muted-foreground/50 transition-all duration-300 hover:shadow-sm"
                   >
-                    <div className="space-y-2">
-                      <div className="text-foreground group-hover:text-muted-foreground transition-colors duration-300">
-                        {social.name}
-                      </div>
-                      <div className="text-sm text-muted-foreground">
-                        {social.handle}
+                    <div className="flex items-start gap-3">
+                      <HugeiconsIcon
+                        icon={social.icon}
+                        size={22}
+                        strokeWidth={1.6}
+                        className="mt-0.5 shrink-0 text-foreground group-hover:text-muted-foreground transition-colors duration-300"
+                        aria-hidden="true"
+                      />
+                      <div className="min-w-0 space-y-2">
+                        <div className="text-foreground group-hover:text-muted-foreground transition-colors duration-300">
+                          {social.name}
+                        </div>
+                        <div className="truncate whitespace-nowrap text-sm text-muted-foreground">
+                          {social.handle}
+                        </div>
                       </div>
                     </div>
                   </Link>
