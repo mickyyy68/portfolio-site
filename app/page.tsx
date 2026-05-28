@@ -12,6 +12,7 @@ import {
   siBun,
   siConvex,
   siElectron,
+  siHono,
   siLangchain,
   siNextdotjs,
   siPocketbase,
@@ -32,6 +33,7 @@ const techIcons: Partial<Record<string, SimpleIcon>> = {
   Bun: siBun,
   Convex: siConvex,
   Electron: siElectron,
+  Hono: siHono,
   LangChain: siLangchain,
   "Next.js": siNextdotjs,
   PocketBase: siPocketbase,
@@ -221,6 +223,17 @@ export default function Home() {
             <div className="grid gap-6 sm:gap-8 md:grid-cols-2">
               {(
                 [
+                  {
+                    title: "Leo Solution Hub",
+                    type: "Client Platform",
+                    status: "Live",
+                    tagline:
+                      "CRM and company intelligence tools for centralized business data.",
+                    summary:
+                      "Built a CRM to centralize client and company data, plus an Electron app to discover, enrich, and organize company information.",
+                    tech: ["Hono", "React", "Vite", "Bun", "Electron"],
+                    link: "https://www.leosolutionhub.com",
+                  },
                   {
                     title: "Aristar Worktrees",
                     type: "Desktop Application",
