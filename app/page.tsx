@@ -8,6 +8,69 @@ import {
   InstagramIcon,
   Linkedin01Icon,
 } from "@hugeicons/core-free-icons";
+import {
+  siBun,
+  siConvex,
+  siElectron,
+  siLangchain,
+  siNextdotjs,
+  siPocketbase,
+  siQdrant,
+  siReact,
+  siRust,
+  siSvelte,
+  siTauri,
+  siTypescript,
+  siVite,
+  siWebgl,
+  type SimpleIcon,
+} from "simple-icons";
+
+const techIcons: Partial<Record<string, SimpleIcon>> = {
+  Bun: siBun,
+  Convex: siConvex,
+  Electron: siElectron,
+  LangChain: siLangchain,
+  "Next.js": siNextdotjs,
+  PocketBase: siPocketbase,
+  Qdrant: siQdrant,
+  React: siReact,
+  Rust: siRust,
+  Svelte: siSvelte,
+  Tauri: siTauri,
+  TypeScript: siTypescript,
+  Vite: siVite,
+  WebGL: siWebgl,
+};
+
+function TechBadge({
+  name,
+  variant = "chip",
+}: {
+  name: string;
+  variant?: "chip" | "pill";
+}) {
+  const icon = techIcons[name];
+  const className =
+    variant === "pill"
+      ? "inline-flex items-center gap-1.5 px-3 py-1 text-xs border border-border rounded-full transition-colors duration-300 hover:border-muted-foreground/50 hover:text-foreground"
+      : "inline-flex items-center gap-1.5 px-2 py-1 text-xs text-muted-foreground border border-border rounded transition-colors duration-300 hover:text-foreground";
+
+  return (
+    <span className={className}>
+      {icon ? (
+        <svg
+          viewBox="0 0 24 24"
+          className="size-3.5 shrink-0 fill-current"
+          aria-hidden="true"
+        >
+          <path d={icon.path} />
+        </svg>
+      ) : null}
+      <span>{name}</span>
+    </span>
+  );
+}
 
 export default function Home() {
   const [isDark, setIsDark] = useState(true);
@@ -68,7 +131,9 @@ export default function Home() {
       <main className="max-w-4xl mx-auto px-6 sm:px-8 lg:px-16">
         <header
           id="intro"
-          ref={(el) => (sectionsRef.current[0] = el)}
+          ref={(el) => {
+            sectionsRef.current[0] = el;
+          }}
           className="min-h-screen flex items-center opacity-0"
         >
           <div className="grid lg:grid-cols-5 gap-12 sm:gap-16 w-full">
@@ -110,8 +175,12 @@ export default function Home() {
                   <div className="text-foreground">
                     Fullstack Developer & CS Undergrad
                   </div>
-                  <div className="text-muted-foreground">@ Bonobo AI • UniMoRe</div>
-                  <div className="text-xs text-muted-foreground">2024 — Present</div>
+                  <div className="text-muted-foreground">
+                    @ Bonobo AI • UniMoRe
+                  </div>
+                  <div className="text-xs text-muted-foreground">
+                    2024 — Present
+                  </div>
                 </div>
               </div>
 
@@ -120,14 +189,11 @@ export default function Home() {
                   FOCUS
                 </div>
                 <div className="flex flex-wrap gap-2">
-                  {["Bun", "Vite", "React", "AI Agents"].map((skill) => (
-                    <span
-                      key={skill}
-                      className="px-3 py-1 text-xs border border-border rounded-full hover:border-muted-foreground/50 transition-colors duration-300"
-                    >
-                      {skill}
-                    </span>
-                  ))}
+                  {["Bun", "Vite", "React", "Svelte", "AI Agents"].map(
+                    (skill) => (
+                      <TechBadge key={skill} name={skill} variant="pill" />
+                    ),
+                  )}
                 </div>
               </div>
             </div>
@@ -136,7 +202,9 @@ export default function Home() {
 
         <section
           id="work"
-          ref={(el) => (sectionsRef.current[1] = el)}
+          ref={(el) => {
+            sectionsRef.current[1] = el;
+          }}
           className="min-h-screen py-20 sm:py-32 opacity-0"
         >
           <div className="space-y-12 sm:space-y-16">
@@ -166,8 +234,7 @@ export default function Home() {
                     title: "Aristar Notes",
                     type: "Web Application",
                     status: "Retired",
-                    tagline:
-                      "AI-powered note-taking with document analysis.",
+                    tagline: "AI-powered note-taking with document analysis.",
                     summary:
                       "PDF/document upload, AI chat/completion, document organization, and usage-based quotas.",
                     tech: ["Bun", "Elysia", "Vite", "React", "PocketBase"],
@@ -225,7 +292,7 @@ export default function Home() {
                           ? "text-emerald-500 border-emerald-500/40"
                           : proj.status === "Retired"
                             ? "text-muted-foreground border-border"
-                          : "text-amber-500 border-amber-500/40"
+                            : "text-amber-500 border-amber-500/40"
                       }`}
                     >
                       {proj.status}
@@ -241,12 +308,7 @@ export default function Home() {
 
                   <div className="mt-4 flex flex-wrap gap-2">
                     {proj.tech.map((t) => (
-                      <span
-                        key={t}
-                        className="px-2 py-1 text-xs text-muted-foreground border border-border rounded"
-                      >
-                        {t}
-                      </span>
+                      <TechBadge key={t} name={t} />
                     ))}
                   </div>
 
@@ -322,7 +384,9 @@ export default function Home() {
 
         <section
           id="connect"
-          ref={(el) => (sectionsRef.current[2] = el)}
+          ref={(el) => {
+            sectionsRef.current[2] = el;
+          }}
           className="py-20 sm:py-32 opacity-0"
         >
           <div className="grid lg:grid-cols-2 gap-12 sm:gap-16">
@@ -419,7 +483,7 @@ export default function Home() {
           <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-6 sm:gap-8">
             <div className="space-y-2">
               <div className="text-sm text-muted-foreground">
-                © 2025 Michael Aristarco. All rights reserved.
+                © 2026 Michael Aristarco. All rights reserved.
               </div>
             </div>
 
