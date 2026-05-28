@@ -21,12 +21,14 @@ import {
   siSvelte,
   siTauri,
   siTypescript,
+  siVercel,
   siVite,
   siWebgl,
   type SimpleIcon,
 } from "simple-icons";
 
 const techIcons: Partial<Record<string, SimpleIcon>> = {
+  "AI SDK": siVercel,
   Bun: siBun,
   Convex: siConvex,
   Electron: siElectron,
@@ -247,7 +249,7 @@ export default function Home() {
                       "End-to-end bakery management with AI-assisted ordering.",
                     summary:
                       "Manage clients, products, and orders with weekly/daily flows and exports.",
-                    tech: ["Electron", "LangChain"],
+                    tech: ["Electron", "LangChain", "AI SDK"],
                   },
                   {
                     title: "Aristar Survivor",
